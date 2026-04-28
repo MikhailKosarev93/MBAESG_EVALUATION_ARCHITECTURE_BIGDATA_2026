@@ -1,0 +1,46 @@
+# Documentation – Data Product analytique
+
+## Objectif
+Créer un produit data centralisé, stable et réutilisable pour soutenir les analyses marketing.
+
+## Schéma cible
+`ANYCOMPANY_LAB.ANALYTICS`
+
+## Tables créées
+
+### SALES_ENRICHED
+Base analytique des ventes issue de `SILVER.FINANCIAL_TRANSACTIONS`, filtrée sur les transactions de type `Sale`.
+
+### CUSTOMER_SEGMENTS
+Dimension client enrichie avec des variables de segmentation : âge, groupe d’âge, segment de revenu.
+
+### CAMPAIGNS_ENRICHED
+Campagnes marketing enrichies avec :
+- durée,
+- coût par portée,
+- conversions estimées.
+
+### PROMOTIONS_ENRICHED
+Promotions enrichies avec :
+- durée,
+- mois de démarrage,
+- intensité de remise.
+
+### REVIEWS_AGGREGATED
+Agrégation des avis produits par mois et catégorie produit.
+
+### INVENTORY_AGGREGATED
+Agrégation des stocks par région et catégorie produit.
+
+### SUPPLIER_INVENTORY_SUMMARY
+Synthèse des fournisseurs et de l’inventaire à granularité commune.
+
+### MARKETING_PERFORMANCE_MART
+Table centrale du data product, construite à la granularité **mois × région**.
+
+### V_MARKETING_PERFORMANCE
+Vue simplifiée destinée à la consommation métier.
+
+## Choix de modélisation
+Les données couvrent plusieurs domaines métier mais ne partagent pas toutes des clés ligne-à-ligne.  
+Le data product a donc été conçu à une granularité agrégée afin de garantir des jointures fiables et une cohérence analytique.
